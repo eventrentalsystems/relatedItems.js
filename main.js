@@ -2,7 +2,9 @@
 // It uses a Custom Event to listen for 'products' to be populated by the API call
 async function fetchData(url) {
   try {
-    const response = await fetch(url);
+    let response = await fetch(url, {
+      cache: 'no-store',
+    });
 
     if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
 
